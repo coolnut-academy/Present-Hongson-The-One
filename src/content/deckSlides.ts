@@ -516,17 +516,19 @@ export const DECK_SLIDES: DeckSlideData[] = [
     fileName: '27.jpg',
     imageSrc: 'hongson-assets/deck/slide-27.webp',
     sectionKey: 'vision',
-    sectionLabel: 'SCHOOL EMBLEM',
-    category: 'INSTITUTIONAL VISION',
-    eyebrow: 'SLIDE 27 // SCHOOL PRIDE & EMBLEM',
-    titleTh: 'ตราสัญลักษณ์และวิสัยทัศน์ โรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ',
-    titleEn: 'Royal Patronage & Enduring Educational Heritage',
-    quoteTh: 'มุ่งมั่นพัฒนาการศึกษา น้อมนำพระปณิธาน สู่ความเป็นเลิศทางวิชาการและเทคโนโลยี',
-    descriptionTh: 'อัตลักษณ์และความภาคภูมิใจของสถานศึกษา ภายใต้พระอุปถัมภ์ สมเด็จพระเจ้าภคินีเธอ เจ้าฟ้าเพชรรัตนราชสุดา สิริโสภาพัณณวดี',
+    sectionLabel: 'OFFICIAL DOMAIN',
+    category: 'NEW DOMAIN LAUNCH',
+    eyebrow: 'SLIDE 27 // OFFICIAL DOMAIN',
+    titleTh: 'แนะนำ! โดเมนใหม่ของ HONGSON THE ONE: hongson.one',
+    titleEn: 'Official Launch: hongson.one (ห้องสอนดอทวัน)',
+    quoteTh: 'จาก “ห้องสอนเดอะวัน” สู่ “ห้องสอนดอทวัน” — HONGSON THE ONE = hongson.one ชื่อคล้องจอง จำง่าย พิมพ์ตรงบน URL ก็เข้าได้เลย',
+    descriptionTh: 'แนะนำโดเมนเนมใหม่ hongson.one เพื่อการเข้าใช้งานที่ง่ายและสะดวกรวดเร็วยิ่งขึ้น เข้าถึงศูนย์รวมแอปพลิเคชันเพื่อการศึกษาของโรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ ได้โดยตรง ไม่ต้องผ่านหน้าเว็บโรงเรียน',
     takeaways: [
-      'สัญลักษณ์แห่งเกียรติยศและความภาคภูมิใจของชาวห้องสอนศึกษา',
-      'ความมุ่งมั่นในการสืบสานพระปณิธานด้านการศึกษา',
-      'ก้าวสู่อนาคตด้วยนวัตกรรมและเทคโนโลยีที่ยั่งยืน'
+      'เข้าถึงได้รวดเร็ว: พิมพ์ตรงบน URL ที่ hongson.one หรือ www.hongson.one ก็ใช้งานได้ทันที',
+      'จำง่ายและคล้องจอง: จาก "ห้องสอนเดอะวัน" สู่ "ห้องสอนดอทวัน" จำง่ายกว่าเดิม',
+      'รวมทุกแอปไว้ในที่เดียว: ทั้ง T-Folio, DigitalPlan, School PAY, กิจกรรมนักเรียน ฯลฯ',
+      'ไม่ต้องผ่านหน้าเว็บโรงเรียน: ลดขั้นตอนการเข้าสู่ระบบ ใช้งานได้ทันทีจากทุกอุปกรณ์',
+      'ใช้งานได้ทั้งครูและนักเรียน: จัดสรรเครื่องมือและทางเข้าตรงตามบทบาทของผู้ใช้งาน'
     ],
     scene3dMode: 'vision'
   }

@@ -194,8 +194,19 @@ export const App: React.FC = () => {
           <p className="text-white/80 text-sm font-medium">
             โรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ จังหวัดแม่ฮ่องสอน
           </p>
+          <div className="flex items-center justify-center space-x-2 text-emerald-400">
+            <span className="text-white/40">OFFICIAL PORTAL:</span>
+            <a
+              href="https://hongson.one"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-emerald-300 font-bold tracking-wider"
+            >
+              HONGSON.ONE
+            </a>
+          </div>
           <p className="text-white/50 text-[11px]">
-            แหล่งข้อมูลอ้างอิง: Ref/Hongson THE ONE SLIDE (1.jpg – 27.jpg) · สงวนลิขสิทธิ์ พ.ศ. 2569
+            แหล่งข้อมูลอ้างอิง: สไลด์นำเสนอและประชาสัมพันธ์โดเมนใหม่ HONGSON THE ONE (hongson.one) · สงวนลิขสิทธิ์ พ.ศ. 2569
           </p>
           <div className="pt-2">
             <button

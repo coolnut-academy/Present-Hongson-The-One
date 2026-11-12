@@ -1,5 +1,5 @@
 import React from 'react';
-import { Maximize2, CheckCircle2, ChevronRight, Sparkles } from 'lucide-react';
+import { Maximize2, CheckCircle2, ChevronRight, Sparkles, Globe, ExternalLink } from 'lucide-react';
 import { DeckSlideData } from '../content/deckSlides';
 
 interface SlideCardProps {
@@ -125,6 +125,25 @@ export const SlideCard: React.FC<SlideCardProps> = ({
             ))}
           </div>
         </div>
+
+        {/* If Slide 27: Official Domain Link Action */}
+        {slide.slideNumber === 27 && (
+          <div className="pt-3 flex flex-wrap items-center gap-3">
+            <a
+              href="https://hongson.one"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2.5 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs tracking-wider transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] rounded-none"
+            >
+              <Globe className="w-4 h-4" />
+              <span>เข้าใช้งานระบบที่ HONGSON.ONE</span>
+              <ExternalLink className="w-3.5 h-3.5 ml-1" />
+            </a>
+            <span className="font-mono text-[11px] text-white/50">
+              หรือพิมพ์ www.hongson.one ในเบราว์เซอร์
+            </span>
+          </div>
+        )}
 
         {/* Card Footer Technical Meta */}
         <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between font-mono text-[10px] text-white/40">
