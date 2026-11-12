@@ -24,15 +24,15 @@ export const SlideCard: React.FC<SlideCardProps> = ({
     <article
       id={`slide-${index}`}
       data-slide-index={index}
-      className={`group relative transition-all duration-500 mb-12 sm:mb-16 border ${
+      className={`group relative transition-all duration-500 mb-14 sm:mb-20 border backdrop-blur-md ${
         isActive
-          ? 'border-emerald-500/50 bg-[#0E0E12] shadow-[0_0_30px_rgba(16,185,129,0.06)]'
-          : 'border-white/10 bg-[#0B0B0E] hover:border-white/20'
+          ? 'border-emerald-500/60 bg-[#09090C]/92 shadow-[0_0_40px_rgba(16,185,129,0.12)] ring-1 ring-emerald-500/30'
+          : 'border-white/10 bg-[#07070A]/85 hover:border-white/25 hover:bg-[#07070A]/92 shadow-2xl'
       } rounded-sm overflow-hidden`}
       style={{
         borderTop: isActive
-          ? '1px solid rgba(52, 211, 153, 0.7)'
-          : '1px solid rgba(255, 255, 255, 0.18)',
+          ? '2px solid rgba(52, 211, 153, 0.9)'
+          : '1px solid rgba(255, 255, 255, 0.22)',
       }}
     >
       {/* Top Spec Bar */}
