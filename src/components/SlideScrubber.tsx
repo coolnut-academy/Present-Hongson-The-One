@@ -106,3 +106,4 @@ export const SlideScrubber: React.FC<SlideScrubberProps> = ({
     </div>
   );
 };
+

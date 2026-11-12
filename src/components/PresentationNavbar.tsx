@@ -120,3 +120,4 @@ export const PresentationNavbar: React.FC<PresentationNavbarProps> = ({
     </header>
   );
 };
+

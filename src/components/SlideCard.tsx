@@ -140,3 +140,4 @@ export const SlideCard: React.FC<SlideCardProps> = ({
     </article>
   );
 };
+

@@ -541,3 +541,4 @@ export const DECK_SECTIONS = [
   { key: 'cycle', label: '06 · INNOVATION CYCLE', slideRange: '21–24', startSlide: 21 },
   { key: 'vision', label: '07 · ONE PLATFORM', slideRange: '25–27', startSlide: 25 },
 ];
+
