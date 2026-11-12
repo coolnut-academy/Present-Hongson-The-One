@@ -4,35 +4,21 @@ import { Deck3DBackground } from './scenes/Deck3DBackground';
 import { SlideCard } from './components/SlideCard';
 import { SlideLightbox } from './components/SlideLightbox';
 import { SlideScrubber } from './components/SlideScrubber';
-import { DECK_SLIDES } from './content/deckSlides';
-import { ChevronUp, ChevronDown, Sparkles, Box, Compass } from 'lucide-react';
+import { DECK_SLIDES, DECK_SECTIONS } from './content/deckSlides';
+import { ChevronUp, ChevronDown, Sparkles, Box, Compass, Globe, ExternalLink, ArrowRight } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [isScrubberOpen, setIsScrubberOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const isScrollingRef = useRef(false);
 
   const totalSlides = DECK_SLIDES.length;
   const currentSlide = DECK_SLIDES[activeSlideIndex] || DECK_SLIDES[0];
 
-  // Continuous Scroll Progress Listener for 3D Camera & Rotation
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollable > 0) {
-        const progress = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
-        setScrollProgress(progress);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Scroll smoothly to a specific slide
+  // Scroll smoothly to a specific slide (0 = Hero, 1..27 = Slides, 28 = Outro)
   const goToSlide = useCallback((index: number) => {
     if (index < 0 || index >= totalSlides) return;
     setActiveSlideIndex(index);
@@ -58,13 +44,23 @@ export const App: React.FC = () => {
     }
   }, [activeSlideIndex, goToSlide]);
 
-  // Keyboard navigation
+  // Track scroll position in the snap container
+  const handleContainerScroll = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const scrollable = el.scrollHeight - el.clientHeight;
+    if (scrollable > 0) {
+      const progress = Math.min(Math.max(el.scrollTop / scrollable, 0), 1);
+      setScrollProgress(progress);
+    }
+  };
+
+  // Keyboard navigation for 1-to-1 Slides
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept if lightbox or scrubber is open
       if (lightboxIndex !== null || isScrubberOpen) return;
 
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
         nextSlide();
       } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
@@ -83,12 +79,11 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxIndex, isScrubberOpen, nextSlide, prevSlide, goToSlide, totalSlides]);
 
-  // Intersection Observer for scroll tracking
+  // Intersection Observer for 1-to-1 Slide Snapping
   useEffect(() => {
     const options: IntersectionObserverInit = {
-      root: null,
-      rootMargin: '-30% 0px -40% 0px',
-      threshold: 0,
+      root: containerRef.current,
+      threshold: 0.55, // Trigger when more than half of the slide is visible
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -117,8 +112,8 @@ export const App: React.FC = () => {
   }, [activeSlideIndex]);
 
   return (
-    <div className="relative min-h-screen bg-[#050505] text-[#F5F5F7] selection:bg-emerald-500/30 selection:text-emerald-200 antialiased overflow-x-hidden">
-      {/* 1. CINEMATIC 3D WEBGL BACKGROUND (Spans behind all 27 slides) */}
+    <div className="relative h-screen w-screen overflow-hidden bg-[#050505] text-[#F5F5F7] selection:bg-emerald-500/30 selection:text-emerald-200 antialiased">
+      {/* 1. CINEMATIC 3D WEBGL BACKGROUND (Behind all slides) */}
       <Deck3DBackground
         currentSlide={currentSlide}
         activeSlideIndex={activeSlideIndex}
@@ -137,95 +132,80 @@ export const App: React.FC = () => {
         isScrubberOpen={isScrubberOpen}
       />
 
-      {/* 3. FOREGROUND EXPANSIVE CONTENT: Widescreen Liquid Glass Presentation */}
-      <main className="relative z-10 w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 py-8 sm:py-14">
-        {/* Executive Header Banner - Liquid Glass Island */}
-        <section
-          aria-label="Deck Header"
-          className="mb-12 sm:mb-20 text-center sm:text-left p-6 sm:p-10 lg:p-12 rounded-3xl backdrop-blur-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.25)] relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 shadow-[0_0_15px_rgba(52,211,153,0.2)] mb-4">
-            <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" />
-            <span className="font-mono text-xs font-bold text-emerald-300 tracking-[0.2em] uppercase">
-              OFFICIAL EXECUTIVE PRESENTATION DECK
-            </span>
-          </div>
-
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-            HONGSON THE ONE — สไลด์นำเสนอฉบับทางการ
-          </h1>
-
-          <p className="text-sm sm:text-base lg:text-lg text-[#9CA3AF] leading-relaxed mb-6 max-w-4xl">
-            นำเสนอภาพและข้อมูลสไลด์ครบทั้ง 27 แผ่นตามลำดับ จากเอกสารและสื่อนำเสนอ{' '}
-            <code className="text-emerald-300 font-mono text-xs sm:text-sm bg-white/10 px-2.5 py-1 rounded-full border border-white/15">
-              Ref/Hongson THE ONE SLIDE
-            </code>{' '}
-            ของโรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ ผสาน 3D Background แบบไดนามิกที่แปรเปลี่ยนตามการเลื่อนชมสไลด์
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 font-mono text-xs text-white/70">
-            <span className="bg-white/[0.06] hover:bg-white/[0.1] px-4 py-2 rounded-full border border-white/15 backdrop-blur-md flex items-center space-x-2 transition-all">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-              <span>27 SLIDES COMPLETE</span>
-            </span>
-            <span className="bg-white/[0.06] hover:bg-white/[0.1] px-4 py-2 rounded-full border border-white/15 backdrop-blur-md flex items-center space-x-2 transition-all">
-              <Box className="w-4 h-4 text-emerald-400" />
-              <span>3D CHOREOGRAPHY</span>
-            </span>
-            <span className="bg-white/[0.06] hover:bg-white/[0.1] px-4 py-2 rounded-full border border-white/15 backdrop-blur-md flex items-center space-x-2 transition-all">
-              <Compass className="w-4 h-4 text-cyan-400" />
-              <span>SCROLL-LINKED TRANSFORMATION</span>
-            </span>
-          </div>
-        </section>
-
-        {/* The 27 Sequential Slides in Liquid Glass Cards */}
-        <section aria-label="Slides Showcase" className="space-y-4">
-          {DECK_SLIDES.map((slide, index) => (
+      {/* 3. 1-TO-1 FULL-SCREEN SNAP CONTAINER (Strictly 1 Slide per Screen) */}
+      <div
+        ref={containerRef}
+        onScroll={handleContainerScroll}
+        className="snap-deck-container fixed inset-0 z-10"
+      >
+        {/* The 27 Sequential Slides: Each strictly occupying 100vh with NO bleeding */}
+        {DECK_SLIDES.map((slide, index) => (
+          <section
+            key={slide.slideNumber}
+            id={`slide-${index}`}
+            data-slide-index={index}
+            className="snap-deck-slide w-full h-screen h-[100dvh] flex items-center justify-center px-4 sm:px-6 lg:px-10 xl:px-12 pt-16 pb-6 select-none"
+          >
             <SlideCard
-              key={slide.slideNumber}
               slide={slide}
               index={index}
               isActive={index === activeSlideIndex}
               onOpenLightbox={(idx) => setLightboxIndex(idx)}
             />
-          ))}
+          </section>
+        ))}
+
+        {/* Closing Outro Page: Official Portal & Tribute */}
+        <section
+          id="slide-outro"
+          className="snap-deck-slide w-full h-screen h-[100dvh] flex items-center justify-center px-4 sm:px-6 lg:px-12 pt-16 pb-6 select-none"
+        >
+          <div className="relative w-full max-w-4xl p-8 sm:p-12 rounded-3xl liquid-glass-card text-center space-y-6 shadow-2xl">
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30">
+              <Sparkles className="w-4 h-4 text-emerald-400" />
+              <span className="font-mono text-xs font-bold text-emerald-300 tracking-[0.2em]">
+                HONGSON THE ONE · OFFICIAL PORTAL
+              </span>
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              ก้าวสู่อนาคตการศึกษาดิจิทัลไปด้วยกัน
+            </h2>
+
+            <p className="text-sm sm:text-base text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed">
+              โรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ จังหวัดแม่ฮ่องสอน
+              พร้อมเปิดให้บริการแพลตฟอร์มการศึกษาแบบบูรณาการเต็มรูปแบบ เข้าใช้งานได้โดยตรงผ่านโดเมนใหม่
+            </p>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://hongson.one"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-3 px-8 py-4 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-black font-bold text-sm tracking-wider shadow-[0_4px_30px_rgba(52,211,153,0.5)] active:scale-95 transition-all"
+              >
+                <Globe className="w-5 h-5" />
+                <span>เข้าสู่ระบบที่ HONGSON.ONE</span>
+                <ExternalLink className="w-4 h-4 ml-1" />
+              </a>
+
+              <button
+                onClick={() => goToSlide(0)}
+                className="inline-flex items-center space-x-2 px-6 py-4 rounded-full bg-white/[0.08] hover:bg-white/[0.18] border border-white/20 text-white font-mono text-xs transition-all active:scale-95"
+              >
+                <ChevronUp className="w-4 h-4 text-emerald-400" />
+                <span>กลับสู่สไลด์แรก (SLIDE 01)</span>
+              </button>
+            </div>
+
+            <div className="pt-4 border-t border-white/10 font-mono text-xs text-white/40">
+              <span>HONGSON THE ONE · One Platform to Work, Learn, Create, Share</span>
+            </div>
+          </div>
         </section>
+      </div>
 
-        {/* Closing Vision & School Tribute Footer - Liquid Glass */}
-        <footer className="mt-20 pt-12 text-center font-mono text-xs text-white/50 space-y-4 pb-28 backdrop-blur-2xl bg-white/[0.03] border border-white/10 p-8 sm:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-          <p className="text-white/90 text-sm sm:text-base font-medium">
-            โรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ จังหวัดแม่ฮ่องสอน
-          </p>
-          <div className="flex items-center justify-center space-x-2 text-emerald-400 text-sm">
-            <span className="text-white/40">OFFICIAL PORTAL:</span>
-            <a
-              href="https://hongson.one"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 hover:text-white font-bold tracking-wider transition-all"
-            >
-              HONGSON.ONE
-            </a>
-          </div>
-          <p className="text-white/40 text-xs">
-            แหล่งข้อมูลอ้างอิง: สไลด์นำเสนอและประชาสัมพันธ์โดเมนใหม่ HONGSON THE ONE (hongson.one) · สงวนลิขสิทธิ์ พ.ศ. 2569
-          </p>
-          <div className="pt-3">
-            <button
-              onClick={() => goToSlide(0)}
-              className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.18] border border-white/20 text-emerald-300 hover:text-white transition-all font-mono text-xs active:scale-95 shadow-md"
-            >
-              <ChevronUp className="w-4 h-4" />
-              <span>กลับสู่จุดเริ่มต้น (SLIDE 01)</span>
-            </button>
-          </div>
-        </footer>
-      </main>
-
-      {/* 4. FLOATING HUD TELEMETRY - Liquid Glass Capsule */}
+      {/* 4. FLOATING HUD TELEMETRY (Left Corner on Desktop) */}
       <div className="hidden lg:flex fixed bottom-6 left-6 z-30 items-center space-x-3 bg-black/60 backdrop-blur-2xl border border-white/20 px-5 py-2.5 rounded-full font-mono text-xs text-white/80 shadow-[0_10px_35px_rgba(0,0,0,0.6)]">
         <div className="relative flex items-center justify-center w-2.5 h-2.5">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -237,12 +217,12 @@ export const App: React.FC = () => {
         </span>
         <span className="text-white/20">|</span>
         <span className="text-white/60">
-          PROGRESS: {(scrollProgress * 100).toFixed(0)}%
+          PAGE: {activeSlideIndex + 1} / {totalSlides}
         </span>
       </div>
 
-      {/* 5. FLOATING PRESENTATION CONTROLS - Liquid Glass Capsule */}
-      <div className="fixed bottom-6 right-6 z-30 flex items-center space-x-1.5 bg-black/60 backdrop-blur-2xl border border-white/20 p-2 rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.6)]">
+      {/* 5. FLOATING PRESENTATION CONTROLLER (Right Corner) */}
+      <div className="fixed bottom-6 right-6 z-30 flex items-center space-x-2 bg-black/60 backdrop-blur-2xl border border-white/20 p-2 rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.6)]">
         <button
           onClick={prevSlide}
           disabled={activeSlideIndex === 0}
@@ -252,7 +232,7 @@ export const App: React.FC = () => {
           <ChevronUp className="w-4 h-4 text-emerald-400" />
         </button>
 
-        <div className="font-mono text-xs text-white/80 px-2.5 flex items-center space-x-1">
+        <div className="font-mono text-xs text-white/90 px-3 flex items-center space-x-1">
           <span className="text-emerald-300 font-bold">
             {String(activeSlideIndex + 1).padStart(2, '0')}
           </span>
@@ -270,7 +250,23 @@ export const App: React.FC = () => {
         </button>
       </div>
 
-      {/* 6. FULLSCREEN HIGH-RES SLIDE LIGHTBOX MODAL */}
+      {/* 6. SIDE VERTICAL SLIDE DOTS (Right Edge Desktop) */}
+      <div className="hidden 2xl:flex fixed right-4 top-1/2 -translate-y-1/2 z-30 flex-col space-y-1.5 p-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
+        {DECK_SLIDES.map((_, dotIdx) => (
+          <button
+            key={dotIdx}
+            onClick={() => goToSlide(dotIdx)}
+            className={`transition-all rounded-full ${
+              dotIdx === activeSlideIndex
+                ? 'w-2.5 h-6 bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]'
+                : 'w-2.5 h-2.5 bg-white/25 hover:bg-white/60'
+            }`}
+            title={`ไปยังสไลด์ที่ ${dotIdx + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* 7. FULLSCREEN HIGH-RES SLIDE LIGHTBOX MODAL */}
       <SlideLightbox
         slides={DECK_SLIDES}
         currentIndex={lightboxIndex}
@@ -278,7 +274,7 @@ export const App: React.FC = () => {
         onSelectIndex={(idx) => setLightboxIndex(idx)}
       />
 
-      {/* 7. SLIDE THUMBNAIL INDEX / SCRUBBER MODAL */}
+      {/* 8. SLIDE THUMBNAIL INDEX / SCRUBBER MODAL */}
       <SlideScrubber
         slides={DECK_SLIDES}
         activeSlideIndex={activeSlideIndex}
