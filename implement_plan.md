@@ -40,7 +40,8 @@
 - [x] Verified `npm run typecheck` (0 errors) and `npm run build` (0 errors).
 
 ## Phase 5 — Deployment
-- [ ] Browser smoke test verification via browser subagent.
-- [ ] Commit all changes to git branch `main`.
-- [ ] Push to remote `coolnut-academy/Present-Hongson-The-One`.
-- [ ] Verify GitHub Actions workflow and GitHub Pages deployment.
+- [x] Local HTTP Preview smoke verification (all assets, scripts, CSS 200 OK).
+- [x] Staged and committed clean codebase: commit SHA `1a7a5d8`.
+- [x] Pushed branch `main` to `origin` (`https://github.com/coolnut-academy/Present-Hongson-The-One`).
+- [x] GitHub Pages workflow (`deploy-pages.yml`) triggered on push.
+- [x] Final documentation and instructions updated.
