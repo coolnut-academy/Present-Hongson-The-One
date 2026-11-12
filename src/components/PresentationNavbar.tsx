@@ -28,25 +28,31 @@ export const PresentationNavbar: React.FC<PresentationNavbarProps> = ({
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur-2xl bg-black/60 border-b border-white/[0.12] shadow-[0_4px_30px_rgba(0,0,0,0.6)] select-none">
       <div className="max-w-[1720px] mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
-        {/* Brand & Identity with Liquid Glass Hover */}
-        <div
-          onClick={() => onGoToSlide(0)}
-          className="flex items-center space-x-3 cursor-pointer group px-2 py-1 rounded-2xl hover:bg-white/[0.06] transition-all"
+        {/* Brand & Identity - Click to visit hongson.one */}
+        <a
+          href="https://hongson.one"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-3 cursor-pointer group px-2.5 py-1.5 rounded-2xl hover:bg-white/[0.08] transition-all"
+          title="เข้าสู่ระบบ hongson.one (เปิดแท็บใหม่)"
         >
           <img
             src={logoPath}
             alt="HONGSON THE ONE"
-            className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-10 w-auto object-contain transition-transform group-hover:scale-105"
           />
-          <div className="flex flex-col">
-            <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.18em] text-white">
-              HONGSON THE ONE
+          <div className="flex flex-col justify-center">
+            <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.18em] text-white leading-tight">
+              HONGSON
             </span>
-            <span className="text-[10px] sm:text-[11px] text-white/50 truncate max-w-[180px] sm:max-w-none">
+            <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.18em] text-emerald-400 leading-tight">
+              THE ONE
+            </span>
+            <span className="text-[9px] sm:text-[10px] text-white/50 truncate max-w-[180px] sm:max-w-none mt-0.5">
               โรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ
             </span>
           </div>
-        </div>
+        </a>
 
         {/* Desktop Section Navigation - Liquid Glass Pills */}
         <nav className="hidden xl:flex items-center space-x-1.5 p-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl">
