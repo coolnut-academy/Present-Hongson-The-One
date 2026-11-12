@@ -1,5 +1,6 @@
 # This kit's privacy rules. Merge carefully if repository already has .gitignore.
 reference-private/
+Ref/
 node_modules/
 dist/
 .env

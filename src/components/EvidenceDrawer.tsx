@@ -15,26 +15,26 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({ isOpen, onClose 
     switch (grade) {
       case 'observed':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-signal-emerald/15 text-signal-emerald border border-signal-emerald/30">
-            <CheckCircle2 className="w-3 h-3" /> ยืนยันจากระบบจริง (Observed)
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-signal-emerald flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-signal-emerald" /> OBSERVED
           </span>
         );
       case 'reported':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-signal-cyan/15 text-signal-cyan border border-signal-cyan/30">
-            <FileText className="w-3 h-3" /> ตามรายงานวิจัย (Reported)
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-signal-cyan flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-signal-cyan" /> REPORTED
           </span>
         );
       case 'planned':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-signal-violet/15 text-signal-violet border border-signal-violet/30">
-            <Clock className="w-3 h-3" /> แผนงานในอนาคต (Planned)
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-silver-light flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-silver-light" /> PLANNED
           </span>
         );
       case 'expected':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30">
-            <Sparkles className="w-3 h-3" /> ผลลัพธ์ที่คาดการณ์ (Expected)
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-amber-400 flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" /> EXPECTED
           </span>
         );
     }
@@ -42,82 +42,80 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({ isOpen, onClose 
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Backdrop */}
+      {/* Dark Obsidian Backdrop */}
       <div
-        className="absolute inset-0 bg-void/80 backdrop-blur-md transition-opacity"
+        className="absolute inset-0 bg-black/85 backdrop-blur-md transition-opacity"
         onClick={onClose}
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-xl cyber-glass border-l border-stroke/50 p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-8">
+        <div className="w-screen max-w-xl bg-obsidian-surface border-l border-white/[0.08] p-6 sm:p-8 flex flex-col justify-between shadow-2xl overflow-y-auto">
           {/* Header */}
           <div>
-            <div className="flex items-center justify-between pb-4 border-b border-stroke/30">
-              <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-signal-emerald/10 border border-signal-emerald/20 text-signal-emerald">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-base font-bold text-headline">
-                    หลักฐานเชิงประจักษ์ & การตรวจสอบข้อมูล
-                  </h3>
-                  <p className="text-xs text-secondary">
-                    Data Provenance & Verified Evidence Guidelines
-                  </p>
-                </div>
+            <div className="flex items-center justify-between pb-5 hairline-b">
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-signal-emerald block mb-1">
+                  PROVENANCE ARCHIVE // SPEC 2569
+                </span>
+                <h3 className="text-lg font-semibold text-white tracking-[-0.02em]">
+                  คลังหลักฐานและข้อเท็จจริงอ้างอิง
+                </h3>
               </div>
               <button
                 onClick={onClose}
-                className="p-2 text-secondary hover:text-headline rounded-lg bg-elevated/60 hover:bg-elevated transition-all"
+                className="p-1.5 text-silver hover:text-white rounded-[2px] border border-white/[0.08] bg-surface transition-colors"
                 aria-label="Close drawer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Guardrail Principles Notice */}
-            <div className="mt-4 p-3.5 rounded-xl bg-signal-cyan/5 border border-signal-cyan/20 text-xs space-y-2">
-              <div className="font-semibold text-signal-cyan flex items-center gap-1.5">
-                <AlertCircle className="w-4 h-4" /> เกณฑ์ความถูกต้องของข้อมูล (Fact-Checking Standard)
+            {/* Guardrail Policy */}
+            <div className="mt-5 p-4 precision-surface text-xs space-y-2">
+              <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-white flex items-center gap-2">
+                <span>DATA INTEGRITY PROTOCOL</span>
               </div>
-              <p className="text-secondary leading-relaxed">
-                ข้อมูลและสถิติทั้งหมดในเว็บไซต์นี้อ้างอิงตรงจากเอกสารรายงานโครงการนวัตกรรมการศึกษา 2569 (49 หน้า) และสไลด์นำเสนอจริงของโรงเรียน โดยมีข้อกำหนดความโปร่งใสดังนี้:
+              <p className="text-silver leading-relaxed font-light">
+                ข้อมูลเชิงตัวเลขทั้งหมดอ้างอิงตรงจากรายงานวิจัยนวัตกรรมการศึกษา 2569 (49 หน้า) และชุดสไลด์นำเสนอทางการของโรงเรียน:
               </p>
-              <ul className="list-disc list-inside space-y-1 text-secondary/90 pl-1">
-                <li>
-                  <strong className="text-headline">ผลประเมิน Metaverse:</strong> คะแนนเฉลี่ย 12.85 → 16.37 และความพึงพอใจ 92.4% เกิดขึ้นเฉพาะบทเรียน Roblox วัฒนธรรม 7 อำเภอ ไม่ใช่ผลรวมทั้ง Super App
+              <ul className="space-y-1.5 text-silver font-light pt-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-signal-emerald font-mono text-[11px]">01</span>
+                  <span><strong>Metaverse Metrics:</strong> คะแนน 12.85 → 16.37 และความพึงพอใจ 92.4% เกิดขึ้นเฉพาะกลุ่มตัวอย่าง 485 คนในบทเรียน Roblox วัฒนธรรม 7 อำเภอ</span>
                 </li>
-                <li>
-                  <strong className="text-headline">สถานะโครงการ HIS:</strong> Hongson Innovation Space เป็นเป้าหมายตามแผนงาน (Planned)
+                <li className="flex items-start gap-2">
+                  <span className="text-signal-emerald font-mono text-[11px]">02</span>
+                  <span><strong>HIS Facility:</strong> Hongson Innovation Space เป็นเป้าหมายตามแผนงาน</span>
                 </li>
-                <li>
-                  <strong className="text-headline">ข้อมูลบริบท:</strong> จำนวนนักเรียน 1,847 คน และครู 117 คน เป็นสถิติทางการของปีการศึกษา 2568
+                <li className="flex items-start gap-2">
+                  <span className="text-signal-emerald font-mono text-[11px]">03</span>
+                  <span><strong>Demographics:</strong> นักเรียน 1,847 คน และบุคลากร 117 คน เป็นข้อมูลบริบทปีการศึกษา 2568</span>
                 </li>
               </ul>
             </div>
 
             {/* List of Verified Items */}
-            <div className="mt-6 space-y-4">
-              <h4 className="text-xs font-bold text-secondary uppercase tracking-wider">
-                รายการหลักฐานอ้างอิง (Evidence Catalogue)
-              </h4>
+            <div className="mt-6 space-y-3">
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-silver-muted mb-3">
+                VERIFIED SOURCE ENTRIES
+              </div>
 
               {EVIDENCE_ITEMS.map((item) => (
                 <div
                   key={item.id}
-                  className="cyber-glass-card rounded-xl p-4 border border-stroke/40 space-y-2 hover:border-signal-emerald/30 transition-all"
+                  className="precision-surface p-4 space-y-2"
                 >
-                  <div className="flex items-center justify-between gap-2 flex-wrap">
-                    <span className="text-[10px] uppercase font-mono text-signal-cyan">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-silver-muted">
                       {item.category}
                     </span>
                     {getGradeBadge(item.provenanceGrade)}
                   </div>
-                  <h5 className="text-sm font-semibold text-headline">{item.title}</h5>
-                  <p className="text-xs text-secondary leading-relaxed">{item.details}</p>
-                  <div className="pt-2 border-t border-stroke/20 flex items-center justify-between text-[11px] text-secondary/80">
-                    <span>ขอบเขต: {item.scope}</span>
-                    <span className="font-mono text-signal-emerald">{item.sourceRef}</span>
+                  <h4 className="text-sm font-medium text-white">{item.title}</h4>
+                  <p className="text-xs text-silver leading-relaxed font-light">{item.details}</p>
+                  <div className="pt-2 hairline-t flex items-center justify-between text-[11px] font-mono text-silver-muted">
+                    <span>SCOPE: {item.scope}</span>
+                    <span className="text-white">{item.sourceRef}</span>
                   </div>
                 </div>
               ))}
@@ -125,13 +123,12 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({ isOpen, onClose 
           </div>
 
           {/* Footer note */}
-          <div className="pt-6 border-t border-stroke/30 mt-6 text-xs text-secondary/70 flex items-center justify-between">
+          <div className="pt-6 hairline-t mt-6 text-xs text-silver-muted font-mono flex items-center justify-between">
             <span>{SCHOOL_INFO.nameTh}</span>
-            <span className="font-mono">12 Nov 2026</span>
+            <span>SPEC: 12 NOV 2026</span>
           </div>
         </div>
       </div>
     </div>
   );
 };
-

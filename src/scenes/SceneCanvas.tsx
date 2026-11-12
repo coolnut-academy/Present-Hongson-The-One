@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Sparkles } from '@react-three/drei';
 import { CameraRig } from './CameraRig';
 import { DigitalCore } from './DigitalCore';
 import { EcosystemOrbits } from './EcosystemOrbits';
@@ -21,56 +20,50 @@ export const SceneCanvas: React.FC<SceneCanvasProps> = ({
 }) => {
   const { hasWebGL, isMobile, dpr } = useDeviceCapabilities();
 
-  // If WebGL is not supported, return null (fallback will be rendered in HTML)
   if (!hasWebGL) {
     return null;
   }
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <Canvas
-        camera={{ position: [0, 0, 7.5], fov: isMobile ? 55 : 45 }}
-        dpr={[1, dpr]}
-        gl={{
-          antialias: true,
-          alpha: true,
-          powerPreference: 'high-performance',
-        }}
-      >
-        <Suspense fallback={null}>
-          {/* Lighting */}
-          <ambientLight intensity={0.4} />
-          <directionalLight position={[10, 10, 5]} intensity={0.8} color="#F5FAF8" />
-          <directionalLight position={[-10, -5, -5]} intensity={0.5} color="#52CFE5" />
-          <pointLight position={[0, -4, 2]} intensity={0.6} color="#00D6A3" />
+    <>
+      {/* 3D Atmospheric Background Canvas - Subdued and Architectural */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-30 transition-opacity duration-1000">
+        <Canvas
+          camera={{ position: [0, 0, 7.5], fov: isMobile ? 55 : 45 }}
+          dpr={[1, Math.min(dpr, 1.5)]}
+          gl={{
+            antialias: true,
+            alpha: true,
+            powerPreference: 'high-performance',
+          }}
+        >
+          <Suspense fallback={null}>
+            {/* Low-key Studio Lighting */}
+            <ambientLight intensity={0.25} />
+            <directionalLight position={[6, 8, 4]} intensity={0.5} color="#FFFFFF" />
+            <directionalLight position={[-6, -4, -4]} intensity={0.2} color="#00E599" />
 
-          {/* Subdued ambient space particles */}
-          <Sparkles
-            count={isMobile ? 40 : 90}
-            scale={12}
-            size={isMobile ? 1.5 : 2.2}
-            speed={0.3}
-            color="#52CFE5"
-            opacity={0.35}
-          />
+            {/* Camera Track Choreography */}
+            <CameraRig
+              currentChapter={currentChapter}
+              overallProgress={overallProgress}
+              isMobile={isMobile}
+            />
 
-          {/* Camera Animation Rig */}
-          <CameraRig
-            currentChapter={currentChapter}
-            overallProgress={overallProgress}
-            isMobile={isMobile}
-          />
+            {/* Precision 3D Modules */}
+            <DigitalCore currentChapter={currentChapter} overallProgress={overallProgress} />
+            <EcosystemOrbits currentChapter={currentChapter} />
+            <TfolioExploded currentChapter={currentChapter} />
+            <ProductPanels currentChapter={currentChapter} />
+            <MetaverseLandscape currentChapter={currentChapter} />
+            <EvidenceHologram currentChapter={currentChapter} />
+          </Suspense>
+        </Canvas>
+      </div>
 
-          {/* 3D Scene Modules */}
-          <DigitalCore currentChapter={currentChapter} overallProgress={overallProgress} />
-          <EcosystemOrbits currentChapter={currentChapter} />
-          <TfolioExploded currentChapter={currentChapter} />
-          <ProductPanels currentChapter={currentChapter} />
-          <MetaverseLandscape currentChapter={currentChapter} />
-          <EvidenceHologram currentChapter={currentChapter} />
-        </Suspense>
-      </Canvas>
-    </div>
+      {/* Obsidian Scrim Vignette Overlay to ensure Foreground Content Dominance */}
+      <div className="fixed inset-0 pointer-events-none z-[1] bg-[radial-gradient(ellipse_at_center,rgba(5,5,5,0.4)_0%,#050505_95%)]" />
+      <div className="fixed inset-0 pointer-events-none z-[1] bg-gradient-to-b from-obsidian/70 via-transparent to-obsidian/85" />
+    </>
   );
 };
-

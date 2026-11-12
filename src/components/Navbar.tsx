@@ -30,42 +30,45 @@ export const Navbar: React.FC<NavbarProps> = ({
   const basePath = import.meta.env.BASE_URL || './';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4">
-        <nav className="cyber-glass rounded-2xl px-4 py-3 sm:px-6 sm:py-3.5 flex items-center justify-between border border-stroke/40 shadow-2xl">
+        <nav className="precision-surface-glass px-4 py-3 sm:px-6 sm:py-3 flex items-center justify-between">
           {/* Logo & School Branding */}
           <div
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3.5 cursor-pointer group"
             onClick={() => goToChapter(0)}
           >
             <img
               src={`${basePath}hongson-assets/logos/hongson-the-one.webp`}
-              alt="HONGSON THE ONE Logo"
-              className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-[0_0_12px_rgba(0,214,163,0.4)] transition-transform group-hover:scale-105"
+              alt="HONGSON THE ONE"
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain transition-opacity group-hover:opacity-80"
             />
             <div className="flex flex-col">
-              <span className="text-sm sm:text-base font-bold tracking-wider text-headline flex items-center gap-2">
-                HONGSON THE ONE
-                <span className="hidden md:inline-block px-2 py-0.5 text-[10px] uppercase font-semibold tracking-wider rounded bg-signal-emerald/10 text-signal-emerald border border-signal-emerald/20">
-                  Super App
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-semibold tracking-[-0.02em] text-white">
+                  HONGSON THE ONE
                 </span>
-              </span>
-              <span className="text-[11px] text-secondary/90 font-light truncate max-w-[200px] sm:max-w-none">
+                <span className="inline-block w-1 h-1 rounded-full bg-signal-emerald" />
+                <span className="text-[10px] font-mono tracking-[0.15em] uppercase text-silver-muted hidden sm:inline">
+                  EDTECH // HOROLOGY
+                </span>
+              </div>
+              <span className="text-[11px] text-silver font-light truncate max-w-[220px] sm:max-w-none">
                 {SCHOOL_INFO.nameTh} · {SCHOOL_INFO.provinceTh}
               </span>
             </div>
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1.5 text-xs">
+          <div className="hidden lg:flex items-center gap-1 font-mono text-[11px] tracking-[0.12em]">
             {CHAPTERS.slice(0, 6).map((chap) => (
               <button
                 key={chap.id}
                 onClick={() => goToChapter(chap.index)}
-                className={`px-2.5 py-1.5 rounded-lg transition-all font-medium ${
+                className={`px-3 py-1.5 transition-colors uppercase ${
                   currentChapter === chap.index
-                    ? 'bg-signal-emerald/15 text-signal-emerald border border-signal-emerald/30 shadow-[0_0_10px_rgba(0,214,163,0.2)]'
-                    : 'text-secondary hover:text-headline hover:bg-elevated/60'
+                    ? 'text-white border-b border-signal-emerald font-semibold'
+                    : 'text-silver hover:text-white'
                 }`}
               >
                 {chap.numberStr} {chap.eyebrow.split(' ')[0]}
@@ -73,62 +76,58 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
 
             <div className="relative group">
-              <button className="px-2.5 py-1.5 rounded-lg text-secondary hover:text-headline hover:bg-elevated/60 flex items-center gap-1 font-medium">
-                เพิ่มเติม <ChevronDown className="w-3.5 h-3.5" />
+              <button className="px-3 py-1.5 text-silver hover:text-white flex items-center gap-1 uppercase">
+                <span>MORE</span> <ChevronDown className="w-3 h-3 text-silver-muted" />
               </button>
-              <div className="absolute right-0 top-full mt-2 w-56 cyber-glass-card rounded-xl p-2 hidden group-hover:block border border-stroke/40 shadow-xl">
+              <div className="absolute right-0 top-full mt-1.5 w-60 precision-surface p-1.5 hidden group-hover:block shadow-2xl">
                 {CHAPTERS.slice(6).map((chap) => (
                   <button
                     key={chap.id}
                     onClick={() => goToChapter(chap.index)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all font-medium flex items-center justify-between ${
+                    className={`w-full text-left px-3 py-2 text-xs transition-colors flex items-center justify-between ${
                       currentChapter === chap.index
-                        ? 'bg-signal-cyan/15 text-signal-cyan font-bold'
-                        : 'text-secondary hover:text-headline hover:bg-elevated/70'
+                        ? 'text-white bg-white/[0.04] font-medium'
+                        : 'text-silver hover:text-white hover:bg-white/[0.02]'
                     }`}
                   >
-                    <span>{chap.titleTh}</span>
-                    <span className="text-[10px] text-secondary/60">{chap.numberStr}</span>
+                    <span className="truncate pr-2">{chap.titleTh}</span>
+                    <span className="font-mono text-[10px] text-silver-muted">{chap.numberStr}</span>
                   </button>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Action Controls */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Precision Controls */}
+          <div className="flex items-center gap-2.5">
             {/* Evidence Drawer Button */}
             <button
               onClick={openEvidenceDrawer}
-              className="cyber-tag text-xs sm:text-xs py-1.5 px-2.5 sm:px-3 hover:bg-signal-emerald/20 transition-all cursor-pointer flex items-center gap-1.5"
-              title="ตรวจสอบหลักฐานและที่มาของข้อมูล"
+              className="precision-tag px-3 py-1.5 bg-surface border border-white/[0.08] border-t-white/[0.18] rounded-[2px] text-silver hover:text-white hover:border-white/[0.2] transition-colors"
             >
-              <FileCheck2 className="w-3.5 h-3.5 text-signal-emerald" />
-              <span className="hidden sm:inline">หลักฐานอ้างอิง</span>
-              <span className="sm:hidden">หลักฐาน</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-signal-emerald" />
+              <span className="hidden sm:inline">EVIDENCE ARCHIVE</span>
+              <span className="sm:hidden">ARCHIVE</span>
             </button>
 
-            {/* Mode Switcher Toggle */}
+            {/* Mode Switcher */}
             <button
               onClick={toggleViewMode}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all border ${
+              className={`font-mono text-[11px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-[2px] border transition-colors flex items-center gap-1.5 ${
                 viewMode === 'presentation'
-                  ? 'bg-signal-cyan/20 border-signal-cyan/50 text-signal-cyan shadow-[0_0_12px_rgba(82,207,229,0.3)]'
-                  : 'bg-elevated/80 border-stroke/40 text-secondary hover:text-headline'
+                  ? 'bg-white/[0.08] border-white/[0.25] text-white'
+                  : 'bg-surface border-white/[0.08] text-silver hover:text-white'
               }`}
-              title="สลับโหมดนำเสนอ / โหมดสำรวจ"
             >
               {viewMode === 'presentation' ? (
                 <>
-                  <Presentation className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">โหมดนำเสนอ</span>
-                  <span className="sm:hidden">Present</span>
+                  <Presentation className="w-3 h-3 text-signal-cyan" />
+                  <span className="hidden sm:inline">PRESENT</span>
                 </>
               ) : (
                 <>
-                  <Compass className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">โหมดสำรวจ</span>
-                  <span className="sm:hidden">Explore</span>
+                  <Compass className="w-3 h-3 text-silver" />
+                  <span className="hidden sm:inline">EXPLORE</span>
                 </>
               )}
             </button>
@@ -136,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile Menu Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-secondary hover:text-headline rounded-lg bg-elevated/50 border border-stroke/30"
+              className="lg:hidden p-1.5 text-silver hover:text-white rounded-[2px] border border-white/[0.08] bg-surface"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -148,9 +147,9 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer Dropdown */}
       {mobileMenuOpen && (
         <div className="lg:hidden max-w-7xl mx-auto px-4 mt-2">
-          <div className="cyber-glass-card rounded-2xl p-4 border border-stroke/40 max-h-[70vh] overflow-y-auto space-y-1">
-            <div className="text-xs font-semibold text-secondary px-2 py-1 mb-1">
-              เลือกบทที่ต้องการนำเสนอ (12 Chapters)
+          <div className="precision-surface p-4 shadow-2xl space-y-1">
+            <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-silver-muted px-2 py-1 mb-2 hairline-b pb-2">
+              SELECT SECTION // 12 CHAPTERS
             </div>
             {CHAPTERS.map((chap) => (
               <button
@@ -159,35 +158,22 @@ export const Navbar: React.FC<NavbarProps> = ({
                   goToChapter(chap.index);
                   setMobileMenuOpen(false);
                 }}
-                className={`w-full text-left px-3 py-2.5 rounded-xl text-xs flex items-center justify-between ${
+                className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between transition-colors ${
                   currentChapter === chap.index
-                    ? 'bg-signal-emerald/20 text-signal-emerald font-semibold border border-signal-emerald/30'
-                    : 'text-secondary hover:text-headline hover:bg-elevated/60'
+                    ? 'text-white bg-white/[0.06] font-medium'
+                    : 'text-silver hover:text-white'
                 }`}
               >
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-signal-cyan">{chap.numberStr}</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="font-mono text-[10px] text-signal-emerald">{chap.numberStr}</span>
                   <span>{chap.titleTh}</span>
                 </div>
-                <span className="text-[10px] text-secondary/60">{chap.eyebrow.split(' ')[0]}</span>
+                <span className="font-mono text-[10px] text-silver-muted">{chap.eyebrow.split(' ')[0]}</span>
               </button>
             ))}
-
-            <div className="pt-3 border-t border-stroke/30 mt-3 flex items-center justify-between px-2">
-              <a
-                href={SCHOOL_INFO.superAppUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-signal-cyan flex items-center gap-1 hover:underline"
-              >
-                เข้าสู่ hongson.one <ExternalLink className="w-3 h-3" />
-              </a>
-              <span className="text-[11px] text-secondary/70">12 Nov 2026</span>
-            </div>
           </div>
         </div>
       )}
     </header>
   );
 };
-

@@ -1,14 +1,4 @@
 import React, { useState } from 'react';
-import {
-  LogIn,
-  FolderPlus,
-  UploadCloud,
-  Filter,
-  FileText,
-  Download,
-  Eye,
-  CheckCircle2
-} from 'lucide-react';
 import { TEACHER_STEPS } from '../content/siteData';
 
 export const Chapter07Tour: React.FC = () => {
@@ -19,7 +9,7 @@ export const Chapter07Tour: React.FC = () => {
     {
       id: 'dashboard',
       title: 'แดชบอร์ดภาพรวมและเมนูหลัก',
-      en: 'Dashboard & Navigation',
+      en: 'DASHBOARD & STATS OVERVIEW',
       file: 'hongson-assets/screenshots/tfolio-dashboard.webp',
       slide: 'SLIDE 13',
       desc: 'หน้าแรกของครู แสดงสถิติแฟ้มสะสมงาน สถานะการส่ง และการแจ้งเตือนงานที่ต้องดำเนินการ',
@@ -27,7 +17,7 @@ export const Chapter07Tour: React.FC = () => {
     {
       id: 'portfolio',
       title: 'คลังผลงานและการจัดหมวดหมู่',
-      en: 'Portfolio Overview & Categorization',
+      en: 'PORTFOLIO DIRECTORY & REPOSITORY',
       file: 'hongson-assets/screenshots/tfolio-portfolio.webp',
       slide: 'SLIDE 14',
       desc: 'แสดงรายการผลงานทั้งหมด จำแนกตามปีการศึกษา กลุ่มสาระ และระดับตัวชี้วัด',
@@ -35,7 +25,7 @@ export const Chapter07Tour: React.FC = () => {
     {
       id: 'evidence',
       title: 'การเพิ่มผลงานและอัปโหลดหลักฐาน',
-      en: 'New Portfolio & Evidence Upload',
+      en: 'NEW ENTRY & EVIDENCE UPLOAD',
       file: 'hongson-assets/screenshots/tfolio-add-evidence.webp',
       slide: 'SLIDE 15',
       desc: 'ฟอร์มบันทึกรายละเอียดผลงาน แนบไฟล์ภาพกิจกรรม เอกสารอ้างอิง และลิงก์ดิจิทัล',
@@ -43,24 +33,12 @@ export const Chapter07Tour: React.FC = () => {
     {
       id: 'report',
       title: 'การสรุปรายงานและพิมพ์เอกสาร PDF',
-      en: 'Report Preview & PDF Export',
+      en: 'REPORT COMPILATION & PDF EXPORT',
       file: 'hongson-assets/screenshots/tfolio-report.webp',
       slide: 'SLIDE 16',
       desc: 'ระบบประมวลผลจัดรูปเล่มรายงานมาตรฐานโดยอัตโนมัติ พร้อมส่งออกเป็น PDF ทันที',
     },
   ];
-
-  const getStepIcon = (icon: string) => {
-    switch (icon) {
-      case 'LogIn': return LogIn;
-      case 'FolderPlus': return FolderPlus;
-      case 'UploadCloud': return UploadCloud;
-      case 'Filter': return Filter;
-      case 'FileText': return FileText;
-      case 'Download': return Download;
-      default: return CheckCircle2;
-    }
-  };
 
   const currentScreen = screenshots[activeScreenIndex];
 
@@ -68,94 +46,81 @@ export const Chapter07Tour: React.FC = () => {
     <section
       id="tour"
       data-chapter-index="7"
-      className="chapter-section min-h-screen relative flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24"
+      className="chapter-section min-h-screen relative flex items-center justify-center px-4 sm:px-8 py-32"
     >
-      <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="cyber-tag mb-4 text-xs">
-            <span>07 // USER EXPERIENCE</span>
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="max-w-3xl mb-16">
+          <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-silver-muted mb-4">
+            SECTION 07 // PRODUCT WORKFLOW
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-headline tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-[-0.035em] leading-[1.12] mb-6">
             เจาะลึกขั้นตอนการทำงานจริง <br />
-            <span className="text-gradient-cyan">6 สเต็ปของครูผู้ใช้งาน</span>
+            <span className="text-silver">6 สเต็ปของครูผู้ใช้งาน</span>
           </h2>
-          <p className="text-base sm:text-lg text-secondary leading-relaxed">
-            กระบวนการใช้งานถูกออกแบบให้กระชับและเป็นมิตรกับผู้ใช้ เพื่อให้ครูทุกคนสามารถจัดทำและรวบรวมหลักฐานได้ด้วยตนเอง
+          <p className="text-base sm:text-lg text-silver font-light leading-relaxed">
+            กระบวนการใช้งานถูกออกแบบให้กระชับและเป็นมิตร เพื่อให้ครูทุกคนสามารถจัดทำและรวบรวมหลักฐานได้ด้วยตนเอง
           </p>
         </div>
 
-        {/* 6 Steps Bar */}
+        {/* 6 Steps Linear Architectural Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
-          {TEACHER_STEPS.map((s, idx) => {
-            const Icon = getStepIcon(s.icon);
-            return (
-              <div
-                key={s.step}
-                className="p-3.5 rounded-xl bg-elevated/70 border border-stroke/30 flex flex-col justify-between"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs font-bold text-signal-cyan">
-                    STEP {s.step}
-                  </span>
-                  <Icon className="w-4 h-4 text-secondary/80" />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-headline">{s.title}</h4>
-                  <p className="text-[11px] text-secondary/80 mt-1 leading-tight line-clamp-2">
-                    {s.desc}
-                  </p>
-                </div>
+          {TEACHER_STEPS.map((s) => (
+            <div
+              key={s.step}
+              className="precision-surface p-4 flex flex-col justify-between"
+            >
+              <div className="font-mono text-[10px] text-signal-emerald tracking-[0.16em] uppercase mb-1">
+                STEP {s.step}
               </div>
-            );
-          })}
+              <div>
+                <h4 className="text-xs font-semibold text-white mb-1">{s.title}</h4>
+                <p className="text-[11px] text-silver font-light leading-tight">
+                  {s.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Real Screenshot Preview & Tab Selector */}
-        <div className="cyber-glass-card rounded-2xl p-6 sm:p-8 border border-stroke/50 shadow-2xl">
+        {/* Precision Screenshot Inspector */}
+        <div className="precision-surface p-6 sm:p-8">
           {/* Selector Tabs */}
-          <div className="flex flex-wrap gap-2 pb-6 border-b border-stroke/30">
+          <div className="flex flex-wrap gap-2 pb-6 hairline-b">
             {screenshots.map((screen, idx) => (
               <button
                 key={screen.id}
                 onClick={() => setActiveScreenIndex(idx)}
-                className={`px-3 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-2 ${
+                className={`font-mono text-[11px] uppercase tracking-[0.14em] px-4 py-2 rounded-[2px] transition-colors border ${
                   activeScreenIndex === idx
-                    ? 'bg-signal-emerald/20 text-signal-emerald border border-signal-emerald/40 shadow-[0_0_12px_rgba(0,214,163,0.2)]'
-                    : 'bg-elevated/60 text-secondary hover:text-headline border border-stroke/20'
+                    ? 'bg-white/[0.08] border-white/[0.25] text-white'
+                    : 'bg-surface border-white/[0.08] text-silver hover:text-white'
                 }`}
               >
-                <Eye className="w-3.5 h-3.5" />
-                <span>{screen.title}</span>
-                <span className="text-[10px] font-mono text-secondary/60">({screen.slide})</span>
+                <span>{screen.en}</span>
               </button>
             ))}
           </div>
 
           {/* Screenshot Display Frame */}
           <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 relative group">
-              <div className="relative rounded-xl overflow-hidden border border-stroke/50 shadow-xl bg-void">
-                <img
-                  src={`${basePath}${currentScreen.file}`}
-                  alt={currentScreen.title}
-                  className="w-full h-auto object-cover max-h-[500px]"
-                />
-              </div>
-              <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-void/90 border border-signal-emerald/30 text-[10px] font-mono text-signal-emerald">
-                VERIFIED AUTHENTIC INTERFACE · PRIVACY REDACTED
-              </div>
+            <div className="lg:col-span-8 overflow-hidden bg-black/70 border border-white/[0.06]">
+              <img
+                src={`${basePath}${currentScreen.file}`}
+                alt={currentScreen.title}
+                className="w-full h-auto object-cover max-h-[500px]"
+              />
             </div>
 
             <div className="lg:col-span-4 space-y-4">
-              <span className="text-xs font-mono text-signal-emerald uppercase tracking-wider block">
-                {currentScreen.en}
+              <span className="font-mono text-[11px] text-signal-emerald tracking-[0.16em] uppercase block">
+                {currentScreen.slide}
               </span>
-              <h3 className="text-xl font-bold text-headline">{currentScreen.title}</h3>
-              <p className="text-xs sm:text-sm text-secondary leading-relaxed">
+              <h3 className="text-xl font-bold text-white tracking-[-0.01em]">{currentScreen.title}</h3>
+              <p className="text-sm text-silver font-light leading-relaxed">
                 {currentScreen.desc}
               </p>
-              <div className="p-3 rounded-xl bg-void/70 border border-stroke/30 text-xs text-secondary/80 font-mono">
-                SOURCE: TFOLIO-SLIDES // {currentScreen.slide}
+              <div className="p-3 bg-surface border border-white/[0.08] font-mono text-[11px] text-silver-muted">
+                SOURCE: TFOLIO-SLIDES (วาระประชุม)
               </div>
             </div>
           </div>
@@ -164,4 +129,3 @@ export const Chapter07Tour: React.FC = () => {
     </section>
   );
 };
-

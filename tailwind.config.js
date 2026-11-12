@@ -7,25 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        void: '#050A0E',
-        base: '#0A1117',
-        elevated: '#101B23',
-        signal: {
-          emerald: '#00D6A3',
-          cyan: '#52CFE5',
-          violet: '#9673E6',
+        obsidian: '#050505',
+        surface: '#0D0D0F',
+        elevated: '#141417',
+        silver: {
+          DEFAULT: '#86868B',
+          muted: '#535359',
+          light: '#A1A1A6',
         },
-        headline: '#F5FAF8',
-        secondary: '#A3B5B3',
-        stroke: 'rgba(153, 203, 192, 0.18)',
+        signal: {
+          emerald: '#00E599',
+          cyan: '#40D9FF',
+        },
+        hairline: 'rgba(255, 255, 255, 0.08)',
+        specular: 'rgba(255, 255, 255, 0.20)',
       },
       fontFamily: {
-        sans: ['"IBM Plex Sans Thai"', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['"IBM Plex Sans Thai"', 'Inter', 'sans-serif'],
-        mono: ['"Geist Mono"', 'monospace'],
+        sans: ['"IBM Plex Sans Thai"', 'Inter', '-apple-system', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
+      letterSpacing: {
+        tighter: '-0.035em',
+        widest: '0.18em',
       },
     },
   },
   plugins: [],
 }
-

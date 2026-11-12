@@ -1,31 +1,32 @@
 import React from 'react';
-import { UserCheck, GraduationCap, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 export const Chapter04Access: React.FC = () => {
+  const basePath = import.meta.env.BASE_URL || './';
+
   const roles = [
     {
-      role: 'TEACHER AS CREATOR',
+      code: 'ROLE 01',
       title: 'ครูผู้สร้างสรรค์การเรียนรู้',
-      desc: 'เข้าถึงระบบจัดทำแผนการจัดการเรียนรู้ดิจิทัล (Digital Plan Online), ส่งแฟ้มสะสมงานผ่าน T-Folio, และใช้ AI ช่วยออกแบบกิจกรรม',
-      icon: UserCheck,
-      color: 'emerald',
-      source: 'Deck เฟรม 23',
+      role: 'TEACHER AS CREATOR',
+      desc: 'ใช้งาน Digital Plan Online, ส่งแฟ้มผลงาน T-Folio, และนำ AI มาช่วยจัดกิจกรรมการเรียนรู้',
+      img: 'photo-digital-plan.webp',
+      caption: 'การอบรมสร้างแผนการจัดการเรียนรู้ออนไลน์ 25 มิ.ย. 2569',
     },
     {
-      role: 'STUDENT AS MAKER',
+      code: 'ROLE 02',
       title: 'นักเรียนผู้ลงมือปฏิบัติจริง',
-      desc: 'เข้าถึงพื้นที่การเรียนรู้โครงงาน นวัตกรรมดิจิทัล การสร้างสรรค์โมเดลเสมือนจริง และประเมินผลการเรียนรู้แบบบูรณาการ',
-      icon: GraduationCap,
-      color: 'cyan',
-      source: 'Deck เฟรม 24',
+      role: 'STUDENT AS MAKER',
+      desc: 'สร้างสรรค์นวัตกรรมดิจิทัล, หุ่นยนต์, และสำรวจพิพิธภัณฑ์วัฒนธรรมเสมือนจริง 7 อำเภอ',
+      img: 'photo-student-maker.webp',
+      caption: 'กิจกรรมนักเรียนแกนนำและชิ้นงานนวัตกรรม',
     },
     {
-      role: 'ADMINISTRATION & AUDIT',
-      title: 'ฝ่ายบริหารและกำกับคุณภาพ',
-      desc: 'ตรวจสอบและรับรองเอกสารดิจิทัล ติดตามภาพรวม KPI ประจำสถานศึกษา และบริหารจัดการสิทธิ์ผู้ใช้อย่างโปร่งใส',
-      icon: ShieldCheck,
-      color: 'violet',
-      source: 'Report หน้า 9',
+      code: 'ROLE 03',
+      title: 'การพัฒนาศักยภาพครูด้วย AI',
+      role: 'AI PEDAGOGY & INNOVATION',
+      desc: 'การอบรมพัฒนาครูด้านการจัดการเรียนรู้ด้วย AI ณ ห้องนวัตกรรม โรงเรียนห้องสอนศึกษา',
+      img: 'photo-ai-workshop.webp',
+      caption: 'การอบรมพัฒนาครูด้วย AI วันที่ 12 และ 16 ส.ค. 2569',
     },
   ];
 
@@ -33,65 +34,62 @@ export const Chapter04Access: React.FC = () => {
     <section
       id="access"
       data-chapter-index="4"
-      className="chapter-section min-h-screen relative flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24"
+      className="chapter-section min-h-screen relative flex items-center justify-center px-4 sm:px-8 py-32"
     >
-      <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="cyber-tag mb-4 text-xs">
-            <span>04 // ROLE-BASED PORTAL</span>
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="max-w-3xl mb-16">
+          <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-silver-muted mb-4">
+            SECTION 04 // USER ROLES & PRACTICE EVIDENCE
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-headline tracking-tight leading-tight mb-4">
-            การเข้าถึงที่ตรงกับ <br />
-            <span className="text-gradient-emerald">ทุกบทบาทในสถานศึกษา</span>
+          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-[-0.035em] leading-[1.12] mb-6">
+            บทบาทผู้ใช้งานในสถานศึกษา <br />
+            <span className="text-silver">ผ่านการอบรมและลงมือปฏิบัติจริง</span>
           </h2>
-          <p className="text-base sm:text-lg text-secondary leading-relaxed">
-            ศูนย์กลางแอปพลิเคชัน (App Center) คัดสรรและจัดการสิทธิ์เครื่องมือให้เหมาะสมกับบริบทของผู้ใช้งานแต่ละกลุ่มอย่างมีประสิทธิภาพ
+          <p className="text-base sm:text-lg text-silver font-light leading-relaxed">
+            ไม่ใช่เพียงคอนเซ็ปต์บนหน้าจอ: แต่มีการจัดอบรมเชิงปฏิบัติการและขับเคลื่อนการใช้งานจริงทั้งโรงเรียน
           </p>
         </div>
 
-        {/* 3 Role Columns */}
+        {/* 3 Real Photographic Exhibit Panels */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {roles.map((r, idx) => {
-            const Icon = r.icon;
-            const accentClass =
-              r.color === 'emerald'
-                ? 'text-signal-emerald border-signal-emerald/30 group-hover:border-signal-emerald'
-                : r.color === 'cyan'
-                ? 'text-signal-cyan border-signal-cyan/30 group-hover:border-signal-cyan'
-                : 'text-signal-violet border-signal-violet/30 group-hover:border-signal-violet';
-
-            return (
-              <div
-                key={idx}
-                className={`cyber-glass-card rounded-2xl p-6 sm:p-7 border ${accentClass} transition-all duration-300 group flex flex-col justify-between`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="p-3 rounded-xl bg-elevated border border-stroke/40">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[10px] font-mono text-secondary/70">{r.source}</span>
+          {roles.map((r) => (
+            <div
+              key={r.code}
+              className="precision-surface overflow-hidden group flex flex-col justify-between"
+            >
+              <div>
+                {/* Photo Frame */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-black/80 hairline-b">
+                  <img
+                    src={`${basePath}hongson-assets/exhibit/${r.img}`}
+                    alt={r.title}
+                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <div className="absolute top-2.5 left-2.5 font-mono text-[10px] tracking-[0.14em] text-white px-2 py-0.5 bg-black/80 border border-white/[0.1]">
+                    {r.code}
                   </div>
+                </div>
 
-                  <span className="text-xs font-mono font-bold tracking-wider block mb-1">
+                <div className="p-6">
+                  <span className="font-mono text-[11px] text-signal-emerald tracking-[0.14em] uppercase block mb-1">
                     {r.role}
                   </span>
-                  <h3 className="text-lg font-bold text-headline mb-3">{r.title}</h3>
-                  <p className="text-xs sm:text-sm text-secondary leading-relaxed">
+                  <h3 className="text-lg font-bold text-white tracking-[-0.01em] mb-2.5">
+                    {r.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-silver font-light leading-relaxed">
                     {r.desc}
                   </p>
                 </div>
-
-                <div className="pt-4 mt-6 border-t border-stroke/20 flex items-center justify-between text-xs text-secondary/70">
-                  <span>AUTHENTICATED ACCESS</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
               </div>
-            );
-          })}
+
+              <div className="p-4 mx-6 mb-6 bg-surface border border-white/[0.06] font-mono text-[11px] text-silver-muted">
+                {r.caption}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
-
