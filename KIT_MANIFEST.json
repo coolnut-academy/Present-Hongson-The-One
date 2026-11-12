@@ -1,0 +1,405 @@
+{
+  "generated_on": "2026-11-12",
+  "files": [
+    {
+      "path": ".github/workflows/deploy-pages.yml",
+      "size_bytes": 1454,
+      "sha256": "bd8157f0e68b7e3b9b5ec9759210ca9c7c0f5a25247df5a12c7f6b08d3b2011f"
+    },
+    {
+      "path": ".gitignore",
+      "size_bytes": 163,
+      "sha256": "6086e7f6d9edf62f3b496b02442911d098aa87fcb5b4d26adf12495192f8fde1"
+    },
+    {
+      "path": "AGENTS.md",
+      "size_bytes": 2334,
+      "sha256": "d885466f39030ef62da4199ec01a5eca1a2ca88d709b58ec6ab1544d0b638281"
+    },
+    {
+      "path": "AI_START_HERE.md",
+      "size_bytes": 3367,
+      "sha256": "85f97417941aff3b4d83573f80de414c5e168d84ddca05a01f3a226dff3284e6"
+    },
+    {
+      "path": "PROMPT_FOR_AGENT_TH.md",
+      "size_bytes": 9524,
+      "sha256": "27e80ba30ffc1798c01049174b4e6915f2042c7fbcab015a964467525e1eee26"
+    },
+    {
+      "path": "README_HONGSON_KIT.md",
+      "size_bytes": 1139,
+      "sha256": "93eb800695550b3b36bedb63f1a345fb52d07a31a68322cbba122f6d3e926af8"
+    },
+    {
+      "path": "SETUP_TH.md",
+      "size_bytes": 3189,
+      "sha256": "ff11c89271a4b9f7d52717efb9ff8bc5fe76081d8fe7549cca208df3e9a3e3dd"
+    },
+    {
+      "path": "content/site-content.json",
+      "size_bytes": 8208,
+      "sha256": "63f075db4d1a8b854080632d9c6b9c81e0bbf17f944ffd75bdc8289d9e18a40c"
+    },
+    {
+      "path": "docs/00_INDEX.md",
+      "size_bytes": 1002,
+      "sha256": "47576f3db1eb459cc05ba0537e842c9f5c9df2ef2d462e835280e0aef022a04b"
+    },
+    {
+      "path": "docs/01_PRODUCT_BRIEF.md",
+      "size_bytes": 2456,
+      "sha256": "d9196e8a4171604048374486128b6f469a18d06c858fcb3af0696e40353650d0"
+    },
+    {
+      "path": "docs/02_CONTENT_AND_PROVENANCE.md",
+      "size_bytes": 5653,
+      "sha256": "73ae44868462788366449fe1239fc3b016dd72546b99be50f5525d4130e6fa85"
+    },
+    {
+      "path": "docs/03_STORYBOARD.md",
+      "size_bytes": 4412,
+      "sha256": "228e0f267355f32adbb8df5d756ef17e0daef94070c65ba8f9da226f03cf4d20"
+    },
+    {
+      "path": "docs/04_DESIGN_SYSTEM.md",
+      "size_bytes": 2509,
+      "sha256": "a1ba85dbc81896a7c315b7f12e39f45a4e591ad551c6a42de9e6358f9787f9e8"
+    },
+    {
+      "path": "docs/05_ENGINEERING.md",
+      "size_bytes": 3402,
+      "sha256": "464ea40ac9fa8a29b0482769c95cf98232cbf4ebcdbb1b4e5c7651319da96c9e"
+    },
+    {
+      "path": "docs/06_MOBILE_A11Y_PERFORMANCE.md",
+      "size_bytes": 2446,
+      "sha256": "67927802408257e8fcea768b29dfd4ba1ae1643e6752f6398f18b8adfbf0c613"
+    },
+    {
+      "path": "docs/07_QA_DEPLOY.md",
+      "size_bytes": 1784,
+      "sha256": "67acae78e21a598379f89c624d094aeb3840b9201cc2936a6a54497fbf2cd389"
+    },
+    {
+      "path": "docs/08_ASSET_INDEX.md",
+      "size_bytes": 3677,
+      "sha256": "6780204a1b3c43f698ccd33bee442a05c2296bbb5f555ea318df8b055d784754"
+    },
+    {
+      "path": "docs/09_COPY_AND_UI.md",
+      "size_bytes": 3747,
+      "sha256": "7bfe30c16acc0a6468423c4968c49235a0b3b26610e07f8f954c3d8500284e9b"
+    },
+    {
+      "path": "docs/10_ACCEPTANCE_CRITERIA.md",
+      "size_bytes": 1935,
+      "sha256": "b83df053075a95dcc49a7d392f45366228bea4ff647fba07f8df5d407918c8bf"
+    },
+    {
+      "path": "docs/11_NEW_DECK_DISCOVERY.md",
+      "size_bytes": 1277,
+      "sha256": "2f24f0fecb5bd3ec161a3c3ce39f082b5f03787e2fb2a063a8c11c78807b3667"
+    },
+    {
+      "path": "implement_plan.md",
+      "size_bytes": 1623,
+      "sha256": "30425e93d417618a098d44d3e986dfe8f66b3b353c0e540763272cbc86f32f38"
+    },
+    {
+      "path": "plan.md",
+      "size_bytes": 1197,
+      "sha256": "b1c126f215a763d622d5eab5a7e86d7d3fe6c0bc12b4b25fdc5ec342fd7a3380"
+    },
+    {
+      "path": "progress.md",
+      "size_bytes": 666,
+      "sha256": "5c47a69fa04597d4628b7229a92cfb6833d67085f5f678646892337483d1c3de"
+    },
+    {
+      "path": "public/hongson-assets/README_PUBLIC_ASSETS.md",
+      "size_bytes": 420,
+      "sha256": "aeac9a0f9eff30b1fbc949a5b89533015cc5adf90668dfc46032d09bdc5a24d9"
+    },
+    {
+      "path": "public/hongson-assets/logos/hongson-tfolio.webp",
+      "size_bytes": 128418,
+      "sha256": "0b74e5013bdea5f3110e77ea19abe422253685dadbdc67a4bfd1abe2493d854d"
+    },
+    {
+      "path": "public/hongson-assets/logos/hongson-the-one.webp",
+      "size_bytes": 163096,
+      "sha256": "7680b380608737316e03454305f98cf5963d167a7c3214ea29413de7c9192f60"
+    },
+    {
+      "path": "reference-private/.gitignore",
+      "size_bytes": 95,
+      "sha256": "0ffe40f494a45e392c2f3807248bbb3bcadb784809d6e60b3cdf25438242260a"
+    },
+    {
+      "path": "reference-private/README_DO_NOT_COMMIT.md",
+      "size_bytes": 634,
+      "sha256": "2d3a04f8d3f91638ccd89f60599aa2d5be12ab5cd6511a01a5541802ab991df6"
+    },
+    {
+      "path": "reference-private/branding/Logo T-Folio.png",
+      "size_bytes": 2152124,
+      "sha256": "7b689668e78ccec72fd93130559bd723007b9240f9099b3cbf90ebd08371a16f"
+    },
+    {
+      "path": "reference-private/branding/Logo The One.png",
+      "size_bytes": 1951807,
+      "sha256": "4677db0182d418d18585de5395fac60757d56dad0d6bb174de403af223b1187b"
+    },
+    {
+      "path": "reference-private/hongson-one-contact-sheet.jpg",
+      "size_bytes": 838116,
+      "sha256": "5f8060da686e8396135024935cce7971f6a78bc0f397b74621d6ba414d117a8b"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-01.jpg",
+      "size_bytes": 1193053,
+      "sha256": "e4e54b0ad08a114f79a818fc655864290694306f98439491c245e3c8f578bb04"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-02.jpg",
+      "size_bytes": 1188323,
+      "sha256": "117d06c4f616576d5bfa540daad4837fd920863c72086f36d3b8531f67ee6715"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-03.jpg",
+      "size_bytes": 1169845,
+      "sha256": "5dd3d22930ea30b350eebfac4831c74fbbd4c837b6c819080b51d90a5ec27169"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-04.jpg",
+      "size_bytes": 1209436,
+      "sha256": "6c40726006bcc9f0552c3484a2405887bddb540522cd9c647d68dbd6adfc3e6f"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-05.jpg",
+      "size_bytes": 1180827,
+      "sha256": "5434d39be2591fe68b316d9f234cb482977635107828881f8a7e37d50500504f"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-06.jpg",
+      "size_bytes": 1205144,
+      "sha256": "de0340a6a1e75f08c01c0cfe2a616656fb73af1087f512eaf6c0352807fe2ec2"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-07.jpg",
+      "size_bytes": 1245720,
+      "sha256": "e81786127c74404dd3543fe4901f6a0325782c6d046bac55ad96522dd141854f"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-08.jpg",
+      "size_bytes": 1000486,
+      "sha256": "7420cbdcf4684dec287444c307455757bb0c324d436f1417bd7c04db2771ff43"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-09.jpg",
+      "size_bytes": 1040655,
+      "sha256": "d2835a02da9e0333e03d9a8ddfeaa1ef528d747c84a072d9346c4f620dc5a482"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-10.jpg",
+      "size_bytes": 1201803,
+      "sha256": "9a85a13e5e632bbd7f0d4d1f09aaaf92327deebc7bf724bbd9b8f57f160383f4"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-11.jpg",
+      "size_bytes": 1255380,
+      "sha256": "e56ce8745474ec53412a3bd74b5d21112424e797e7b57db8d0fb8f7a4346e080"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-12.jpg",
+      "size_bytes": 1308114,
+      "sha256": "f64e5f3808318352040c52fbdbb4788d37b6284ef78b1addfaf7ad6ce56f9669"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-13.jpg",
+      "size_bytes": 1271575,
+      "sha256": "935ccd6a0450f04d8f8d2e3f22c3443114eb2d68f59a9d45caaffe16cffb667b"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-14.jpg",
+      "size_bytes": 1259835,
+      "sha256": "9713da902defd55e7a7974385408fc906dc4ddbe94d04de90a3efca500ddaf1f"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-15.jpg",
+      "size_bytes": 1722736,
+      "sha256": "c788e214a53b1ec2940476f1d544619977d90f711428e3d9c7ed3f1e224f29ff"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-16.jpg",
+      "size_bytes": 1446472,
+      "sha256": "b82ad68348f08677d3592fe4429a66036baffb32d3e4976f986109833bba81ad"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-17.jpg",
+      "size_bytes": 1357564,
+      "sha256": "c3d42f539631b6ce000e1dd465682ba165f28e6b6c53c26de473441b8aab6f15"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-18.jpg",
+      "size_bytes": 1621568,
+      "sha256": "5503286710c50fb06022461f4ee7b0cae33b4ed1d47bb82169b62b1684e28c20"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-19.jpg",
+      "size_bytes": 1025271,
+      "sha256": "62f5c59beb00dfd7e9cc3dd2a4a46a1390038adeaab9a882a5f2a28fd48da2b2"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-20.jpg",
+      "size_bytes": 1580086,
+      "sha256": "9f2447d5b166f9a05c6a7b625b10f56a70308f6dce6863816b9e981129267417"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-21.jpg",
+      "size_bytes": 1255133,
+      "sha256": "dca781442fc074db7f9bad059034864bbea4e13542eb91a23b8dc98ff433cbf1"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-22.jpg",
+      "size_bytes": 1203526,
+      "sha256": "ba358eb22024854c87b5a82d3977e4948152ab2554f528f8528072550c2d34f8"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-23.jpg",
+      "size_bytes": 1320640,
+      "sha256": "ac02bed8a97cce695f478faf713c0f8cfcead5f07fa2f645eecab18895bbd34c"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-24.jpg",
+      "size_bytes": 1317125,
+      "sha256": "eaa47c8611a21e3fbed4ac3d2118226c2cee37adeaeb56927679c6a50784ffd6"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-25.jpg",
+      "size_bytes": 1240492,
+      "sha256": "d0b37178e389752d9055e442340eec545322013c2a379a1bb9b40c24acc57b07"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-26.jpg",
+      "size_bytes": 1355632,
+      "sha256": "0f7caa9f8fcb389c56295fa42adb6787617cb25ad50b4d900d510c901541416d"
+    },
+    {
+      "path": "reference-private/hongson-one-deck/frame-27.jpg",
+      "size_bytes": 746423,
+      "sha256": "31a99d183c65d15949842327c7e99c4a3b036f145548f8cd4301c55f35e6bd1b"
+    },
+    {
+      "path": "reference-private/report/HONGSON_THE_ONE_Report_2569.pdf",
+      "size_bytes": 5188390,
+      "sha256": "9ab50216cc3e4fac0beb6d9308a5c6fdee03fa7614689155faec2917e97bea5e"
+    },
+    {
+      "path": "reference-private/tfolio-contact-sheet.jpg",
+      "size_bytes": 944860,
+      "sha256": "7e801792823a65df929ab302c8db8322184abb8740ba92999d7bb8797442802b"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-01.png",
+      "size_bytes": 2234868,
+      "sha256": "3ef5b90c3a5c126d0a25f30942d5f26e7c8a084f4b939cbeae3c4de89e3a69b4"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-02.png",
+      "size_bytes": 1966917,
+      "sha256": "6b5c0568f7604932f76ef27f86edc06e5a1062a6c2006b429be88aad5eeda489"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-03.png",
+      "size_bytes": 1928285,
+      "sha256": "9921ce9bfa8d02c282e2cdf3c958ee5ce9892d0b2253668872ea76bbe4b544bf"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-04.png",
+      "size_bytes": 1770155,
+      "sha256": "527df529248e9f31f4a1c27ce4566ce130fa0ade9114c36c02fddea4391667c7"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-05.png",
+      "size_bytes": 1829580,
+      "sha256": "fc17bf7794262ceddfa6efcaa43f67fbbb031075c6ea0033fbcbf756d57ccf9c"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-06.png",
+      "size_bytes": 1742559,
+      "sha256": "0fbf769e1430a4c29ff07d33aba52c171b02c683896125847a021fb63eae82d0"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-07.png",
+      "size_bytes": 1628593,
+      "sha256": "077e026db8ca625707d3af3e99110170284b8a259b20ebca3dd444e6a708582c"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-08.png",
+      "size_bytes": 1875007,
+      "sha256": "b99f46ccbd503956275efbed764c4c80d26ab8f5840a8a9811132834e1ee368e"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-09.png",
+      "size_bytes": 1872918,
+      "sha256": "69c04ce876ee02166568d76a2bf35b41eee196a9075189eef82a3bf5c393afa7"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-10.png",
+      "size_bytes": 2620381,
+      "sha256": "04caebc85e85ff9e3a1149256f7f70d2c1d1836ad5b6e44623a834973e967794"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-11.png",
+      "size_bytes": 1865804,
+      "sha256": "73c41919b733993be0d5768c9ed730a7d6883ec225eb7fb4112d2116ae131fe4"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-12.png",
+      "size_bytes": 1721575,
+      "sha256": "ac4bdd9389e283c2e8d3c5d7922b6f59d987a084c264c4380a14468430e7c49d"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-13.png",
+      "size_bytes": 1769929,
+      "sha256": "afe25cd7a830153875bd75a7c89d74a81ba13b3c4022f071ef1f8712847472cf"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-14.png",
+      "size_bytes": 1934879,
+      "sha256": "c28a11b90dfd29e8925e578950c00a4be90a1f1cbaacc95b03108c7cda03fa10"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-15.png",
+      "size_bytes": 1750178,
+      "sha256": "496075bee3bca6915544404a146ab364a26cef315f9f0a4dc50e86f99fb4ad14"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-16.png",
+      "size_bytes": 1783702,
+      "sha256": "4f41265886a1de545ef9427ec29346fbc84f5946ca48051e2f8b7d93b075fdce"
+    },
+    {
+      "path": "reference-private/tfolio-slides/slide-17.png",
+      "size_bytes": 1778537,
+      "sha256": "f7d8a7c9dc267116ecdec3b45afc1ca76d30612c93084ab06ec79e619d4a8eea"
+    },
+    {
+      "path": "scripts/audit_kit.py",
+      "size_bytes": 1264,
+      "sha256": "634da103f4cbccf26e530faa128d3da9949e9260a4b38b34f7e12f689c8140f0"
+    },
+    {
+      "path": "scripts/release_guard.sh",
+      "size_bytes": 590,
+      "sha256": "2a276cf6c6c3333dd752922af480ad7293fef579409794860d82e9cf977e895d"
+    },
+    {
+      "path": "templates/vite.config.ts",
+      "size_bytes": 362,
+      "sha256": "2db743b36e606183886a8973e1492652d7c9703fdc713f772bcf4e03dc045c05"
+    }
+  ]
+}

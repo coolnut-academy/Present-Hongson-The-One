@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-void: #050a0e;
+  --color-base: #0a1117;
+  --color-elevated: #101b23;
+  --color-emerald: #00d6a3;
+  --color-cyan: #52cfe5;
+  --color-violet: #9673e6;
+  --color-headline: #f5faf8;
+  --color-secondary: #a3b5b3;
+  --color-stroke: rgba(153, 203, 192, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--color-void);
+  color: var(--color-headline);
+  font-family: 'IBM Plex Sans Thai', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050a0e;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(82, 207, 229, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 214, 163, 0.5);
+}
+
+/* Restrained Cyberpunk Glass and Accents */
+.cyber-glass {
+  background: rgba(16, 27, 35, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(153, 203, 192, 0.16);
+}
+
+.cyber-glass-card {
+  background: linear-gradient(135deg, rgba(16, 27, 35, 0.85) 0%, rgba(10, 17, 23, 0.92) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(153, 203, 192, 0.14);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.cyber-glass-card:hover {
+  border-color: rgba(0, 214, 163, 0.35);
+  box-shadow: 0 12px 40px -8px rgba(0, 214, 163, 0.12);
+}
+
+.cyber-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(0, 214, 163, 0.08);
+  border: 1px solid rgba(0, 214, 163, 0.25);
+  color: #00d6a3;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #f5faf8 20%, #00d6a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #f5faf8 20%, #52cfe5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #f5faf8 20%, #9673e6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

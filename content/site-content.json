@@ -1,0 +1,280 @@
+{
+  "project": "HONGSON THE ONE — Immersive Digital Education Exhibition",
+  "date_updated": "2026-11-12",
+  "school": {
+    "th": "โรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ",
+    "province": "แม่ฮ่องสอน"
+  },
+  "branding": {
+    "primary_logo": "hongson-assets/logos/hongson-the-one.webp",
+    "flagship_logo": "hongson-assets/logos/hongson-tfolio.webp"
+  },
+  "source_keys": {
+    "A": "reference-private/report/HONGSON_THE_ONE_Report_2569.pdf",
+    "B": "reference-private/tfolio-slides/slide-{01..17}.png",
+    "C": "reference-private/branding/Logo The One.png and Logo T-Folio.png",
+    "D": "reference-private/hongson-one-deck/frame-{01..27}.jpg (separate ONE executive presentation/evidence folder)"
+  },
+  "four_pillars": [
+    {
+      "key": "WORK",
+      "th": "ระบบงานที่เชื่อมถึงกัน",
+      "detail": "การจัดการงาน เอกสาร หลักฐาน และการติดตามสถานะ",
+      "source": "A pp.8–9"
+    },
+    {
+      "key": "LEARN",
+      "th": "เรียนรู้เพื่อพัฒนา",
+      "detail": "AI และเทคโนโลยีการศึกษาสำหรับครูและนักเรียน",
+      "source": "A pp.8–9"
+    },
+    {
+      "key": "CREATE",
+      "th": "สร้างเครื่องมือจากโจทย์จริง",
+      "detail": "WebApp, เครื่องมือและผลงานนวัตกรรม",
+      "source": "A pp.8–9"
+    },
+    {
+      "key": "SHARE",
+      "th": "แบ่งปันและขยายผล",
+      "detail": "Best Practice และการแลกเปลี่ยนเรียนรู้",
+      "source": "A pp.8–9"
+    }
+  ],
+  "tfolio": {
+    "name": "HONGSON T-Folio",
+    "tagline": "Digital Portfolio & Performance Management",
+    "source": "A p.22, B slides 01–17",
+    "workflow_4r": [
+      {
+        "en": "RECORD",
+        "th": "บันทึกผลงานและหลักฐาน"
+      },
+      {
+        "en": "REVIEW",
+        "th": "ตรวจสอบและรับรอง"
+      },
+      {
+        "en": "RETRIEVE",
+        "th": "สืบค้น"
+      },
+      {
+        "en": "REPORT",
+        "th": "สรุปรายงาน"
+      }
+    ],
+    "teacher_workflow": [
+      "Login",
+      "Add Portfolio",
+      "Upload Evidence",
+      "Filter",
+      "Generate Report",
+      "Export PDF"
+    ],
+    "admin_workflow": [
+      "User Management",
+      "Category Config",
+      "Compliance",
+      "Approval",
+      "KPI Dashboard",
+      "Backup"
+    ],
+    "approval_flow": [
+      "Teacher Submit",
+      "Deputy Review",
+      "Director Approve",
+      "Complete"
+    ],
+    "feature_labels": [
+      "Dynamic Form",
+      "Evidence Upload",
+      "PDF Report",
+      "KPI Analytics",
+      "Role-Based Access",
+      "PWA"
+    ],
+    "reported_impact_note": "Slide 11 lists expected impacts; NOT independently verified achieved outcomes."
+  },
+  "metaverse": {
+    "name": "HONGSON METAVERSE MODEL",
+    "scope": "All figures in this object concern the Metaverse sub-project only, not the entire Super App",
+    "facts": [
+      {
+        "value": "7",
+        "label": "อำเภอที่ครอบคลุมในพิพิธภัณฑ์ดิจิทัล",
+        "status": "reported",
+        "source": "A pp.4,11"
+      },
+      {
+        "value": "50",
+        "label": "นักเรียนแกนนำ",
+        "status": "reported",
+        "source": "A p.4"
+      },
+      {
+        "value": "32",
+        "label": "หน่วยการเรียนรู้บูรณาการ",
+        "status": "reported",
+        "source": "A pp.4,26"
+      },
+      {
+        "value": "485",
+        "label": "นักเรียนในกลุ่มตัวอย่างประเมินความรู้",
+        "status": "reported",
+        "source": "A pp.4,29"
+      },
+      {
+        "value": "12.85 → 16.37",
+        "label": "คะแนนเฉลี่ยก่อน–หลัง (เต็ม 20)",
+        "status": "reported_descriptive",
+        "source": "A p.29",
+        "caveat": "Comparison is descriptive; does not by itself prove causal impact"
+      },
+      {
+        "value": "92.4%",
+        "label": "ความพึงพอใจตามรายงานเฉพาะ Metaverse",
+        "status": "reported",
+        "source": "A pp.4,29",
+        "caveat": "Not Super App-wide satisfaction"
+      }
+    ]
+  },
+  "his": {
+    "name": "Hongson Innovation Space (HIS)",
+    "status": "planned",
+    "lead_teacher_target": 20,
+    "planned_zones": [
+      "Co-working Zone",
+      "Presentation Zone",
+      "Recording Corner"
+    ],
+    "source": "A pp.4,6,10"
+  },
+  "school_context": {
+    "school_year": "2568",
+    "students_reported": 1847,
+    "teachers_personnel_reported": 117,
+    "source": "A pp.4–5",
+    "warning": "Historical context figures, not verified current user counts"
+  },
+  "chapters": [
+    {
+      "id": "genesis",
+      "index": 0,
+      "title_th": "HONGSON THE ONE",
+      "subtitle": "The Future of Education",
+      "theme": "cinematic dark",
+      "source": [
+        "A p.1",
+        "C",
+        "D 01,26"
+      ]
+    },
+    {
+      "id": "problem",
+      "index": 1,
+      "title_th": "ปัญหาที่ต้องแก้ทั้งระบบ",
+      "source": [
+        "A p.8",
+        "B 02",
+        "D 02"
+      ]
+    },
+    {
+      "id": "ecosystem",
+      "index": 2,
+      "title_th": "หนึ่งระบบนิเวศการศึกษาดิจิทัล",
+      "source": [
+        "A pp.8–9",
+        "D 03,05"
+      ]
+    },
+    {
+      "id": "pillars",
+      "index": 3,
+      "title_th": "WORK / LEARN / CREATE / SHARE",
+      "source": [
+        "A pp.8–9",
+        "D 06,13,14"
+      ]
+    },
+    {
+      "id": "access",
+      "index": 4,
+      "title_th": "การเข้าถึงตามบทบาท",
+      "source": [
+        "A p.9",
+        "A p.22",
+        "D 22"
+      ]
+    },
+    {
+      "id": "tfolio",
+      "index": 5,
+      "title_th": "นวัตกรรมชูโรง HONGSON T-Folio",
+      "source": [
+        "A p.22",
+        "B 01–04",
+        "D 07–09"
+      ]
+    },
+    {
+      "id": "4r",
+      "index": 6,
+      "title_th": "จากหลักฐานสู่วงจร 4R",
+      "source": [
+        "A p.22",
+        "B 05–08"
+      ]
+    },
+    {
+      "id": "tour",
+      "index": 7,
+      "title_th": "เจาะลึกผลิตภัณฑ์ T-Folio",
+      "source": [
+        "B 12–17"
+      ]
+    },
+    {
+      "id": "governance",
+      "index": 8,
+      "title_th": "การตรวจสอบและบริหารข้อมูล",
+      "source": [
+        "B 06–09"
+      ]
+    },
+    {
+      "id": "metaverse",
+      "index": 9,
+      "title_th": "โลกการเรียนรู้ของแม่ฮ่องสอน",
+      "source": [
+        "A pp.11,26–29"
+      ]
+    },
+    {
+      "id": "evidence",
+      "index": 10,
+      "title_th": "หลักฐานผลลัพธ์ที่ตรวจสอบได้",
+      "source": [
+        "A p.29"
+      ]
+    },
+    {
+      "id": "future",
+      "index": 11,
+      "title_th": "อนาคตของการเรียนรู้ร่วมกัน",
+      "source": [
+        "A pp.10,34",
+        "D 21,25,26"
+      ]
+    }
+  ],
+  "public_portal_url": "https://hongson.one/",
+  "content_guardrails": [
+    "Do not merge Metaverse-only impact metrics into whole-superapp outcomes.",
+    "Do not report HIS planned milestones as completed execution.",
+    "Do not invent T-Folio usage counts, efficiency savings, or unified authentication.",
+    "Redact all private screenshots before publishing."
+  ],
+  "presentation_folder_drive_url": "https://drive.google.com/drive/folders/1G5dqq8HvhGYYQS74f1JtUOlvwBWK4CZb"
+}

@@ -1,0 +1,58 @@
+name: Deploy HONGSON THE ONE to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: hongson-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - name: Compute Vite base path
+        shell: bash
+        env:
+          OVERRIDE_BASE: ${{ vars.VITE_BASE_PATH }}
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          if [[ -n "$OVERRIDE_BASE" ]]; then
+            BASE="$OVERRIDE_BASE"
+          elif [[ "$REPO_NAME" == *.github.io ]]; then
+            BASE='/'
+          else
+            BASE="/$REPO_NAME/"
+          fi
+          echo "VITE_BASE_PATH=$BASE" >> "$GITHUB_ENV"
+          echo "Vite base path: $BASE"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build static application
+        run: npm run build
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload dist
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

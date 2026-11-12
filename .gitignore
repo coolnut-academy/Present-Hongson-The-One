@@ -1,0 +1,9 @@
+# This kit's privacy rules. Merge carefully if repository already has .gitignore.
+reference-private/
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
